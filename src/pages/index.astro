@@ -1,0 +1,331 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const services = [
+  {
+    num: '01',
+    title: 'Maternidad',
+    desc: 'Celebramos la belleza única de la espera. Sesiones diseñadas para capturar la magia de este tiempo tan especial.',
+    href: '/servicios/maternidad',
+    img: 'https://images.unsplash.com/photo-1544126592-807ade215a0b?w=800&q=80&auto=format&fit=crop',
+    tags: ['Luz Natural', 'Estudio'],
+  },
+  {
+    num: '02',
+    title: 'Recién Nacido',
+    desc: 'Los primeros días son los más preciados. Retratos atemporales de tus primeras horas juntos.',
+    href: '/servicios/recien-nacido',
+    img: 'https://images.unsplash.com/photo-1519689680058-324335c77eba?w=800&q=80&auto=format&fit=crop',
+    tags: ['Newborn', 'Estudio'],
+  },
+  {
+    num: '03',
+    title: 'Mini Sesiones',
+    desc: 'Una experiencia completa en menos tiempo. Perfecta para capturar momentos especiales del año.',
+    href: '/servicios/mini-sesiones',
+    img: 'https://images.unsplash.com/photo-1516733968668-dbdce39c4651?w=800&q=80&auto=format&fit=crop',
+    tags: ['30 min', 'Flexible'],
+  },
+  {
+    num: '04',
+    title: 'Mamá y Bebé',
+    desc: 'La primera conexión. Imágenes que preservan ese amor infinito entre madre e hijo para siempre.',
+    href: '/servicios/mama-bebe',
+    img: 'https://images.unsplash.com/photo-1565103094640-6f823b97da1f?w=800&q=80&auto=format&fit=crop',
+    tags: ['Vínculo', 'Amor'],
+  },
+];
+---
+
+<Layout title="Inicio">
+  <Nav />
+
+  <!-- HERO -->
+  <section class="relative min-h-screen flex items-end overflow-hidden">
+    <!-- Hero image -->
+    <div class="absolute inset-0">
+      <img
+        src="https://images.unsplash.com/photo-1544126592-807ade215a0b?w=1600&q=80&auto=format&fit=crop"
+        alt="Fotografía de maternidad"
+        class="w-full h-full object-cover object-center"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/20 to-transparent"></div>
+    </div>
+
+    <!-- Hero content -->
+    <div class="relative z-10 w-full px-6 md:px-12 lg:px-20 pb-16 md:pb-24">
+      <div class="max-w-7xl mx-auto">
+        <p class="font-body text-xs tracking-widest3 uppercase text-cream/70 mb-6">
+          Santiago, Chile
+        </p>
+        <h1 class="font-display font-light text-cream leading-none">
+          <span class="block text-[clamp(60px,10vw,140px)] italic">Momentos</span>
+          <span class="block text-[clamp(60px,10vw,140px)]">ETERNOS</span>
+        </h1>
+        <div class="flex flex-col md:flex-row items-start md:items-end justify-between mt-8 gap-6">
+          <p class="font-body text-sm text-cream/70 max-w-sm leading-relaxed">
+            Fotografía de maternidad, recién nacido y familia que atesorarás por siempre.
+          </p>
+          <a
+            href="/servicios"
+            class="inline-flex items-center gap-4 border border-cream/40 px-8 py-4 font-body text-xs tracking-widest2 uppercase text-cream hover:bg-cream hover:text-ink transition-all duration-500"
+          >
+            Ver servicios
+            <span class="text-base">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 right-8 md:right-20 flex flex-col items-center gap-2 z-10">
+      <span class="font-body text-[10px] tracking-widest2 uppercase text-cream/50" style="writing-mode: vertical-rl;">Scroll</span>
+      <div class="w-px h-16 bg-cream/30 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full bg-cream/70 animate-[scrollLine_2s_ease-in-out_infinite]" style="height: 40%; animation: scrollDown 2s ease-in-out infinite;"></div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    @keyframes scrollDown {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(300%); }
+    }
+  </style>
+
+  <!-- MARQUEE -->
+  <div class="bg-ink py-4 overflow-hidden">
+    <div class="marquee-track">
+      {['Maternidad', '✦', 'Recién Nacido', '✦', 'Mini Sesiones', '✦', 'Mamá & Bebé', '✦', 'Maternidad', '✦', 'Recién Nacido', '✦', 'Mini Sesiones', '✦', 'Mamá & Bebé', '✦'].map(item => (
+        <span class="font-body text-xs tracking-widest2 uppercase text-cream/50 px-6">{item}</span>
+      ))}
+    </div>
+  </div>
+
+  <!-- WELCOME SECTION -->
+  <section class="px-6 md:px-12 lg:px-20 py-24 md:py-36">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <!-- Text -->
+      <div class="reveal">
+        <p class="font-body text-xs tracking-widest3 uppercase text-gold mb-8">Bienvenidos</p>
+        <h2 class="font-display font-light text-[clamp(36px,5vw,64px)] leading-tight mb-8">
+          Una experiencia<br /><em class="italic">inolvidable</em>
+        </h2>
+        <p class="font-body text-sm text-muted leading-relaxed mb-4">
+          En Nathalie Calderón Photography nos sentimos honrados de crear una experiencia inolvidable que celebra tu historia, tu familia y esos momentos que realmente importan.
+        </p>
+        <p class="font-body text-sm text-muted leading-relaxed mb-10">
+          Nuestro propósito es capturar tu esencia con retratos atemporales y conmovedores que atesorarás por siempre. Ya sea que estés viviendo una etapa especial, construyendo recuerdos familiares o simplemente regalándote la oportunidad de detener el tiempo, este es tu momento.
+        </p>
+        <a href="/servicios" class="font-body text-xs tracking-widest2 uppercase border-b border-ink pb-1 hover:text-gold hover:border-gold transition-colors duration-300">
+          Conocer servicios
+        </a>
+      </div>
+
+      <!-- Image collage -->
+      <div class="reveal grid grid-cols-2 gap-4">
+        <div class="img-hover aspect-[3/4] col-span-1">
+          <img
+            src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80&auto=format&fit=crop"
+            alt="Fotografía de maternidad"
+            class="w-full h-full object-cover"
+          />
+        </div>
+        <div class="flex flex-col gap-4">
+          <div class="img-hover aspect-square">
+            <img
+              src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=400&q=80&auto=format&fit=crop"
+              alt="Recién nacido"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="bg-cream-dark p-6 flex flex-col justify-center">
+            <span class="font-display text-4xl font-light text-gold">∞</span>
+            <p class="font-body text-xs text-muted mt-2 leading-relaxed">Retratos que trascienden el tiempo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILOSOFÍA ROW -->
+  <section class="bg-ink px-6 md:px-12 lg:px-20 py-20 md:py-28">
+    <div class="max-w-7xl mx-auto">
+      <p class="font-body text-xs tracking-widest3 uppercase text-cream/40 mb-16 reveal">Nuestra esencia</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        {[
+          { label: 'Nuestro Estilo', text: 'Uniendo la elegancia con un toque de nostalgia y arte, capturamos la belleza eterna de tus momentos más personales en cada fotografía.' },
+          { label: 'Nuestra Filosofía', text: 'Capturamos la belleza y la emoción de tu vida, creando recuerdos invaluables que cuentan tu historia única. Momentos genuinos de alegría e individualidad.' },
+          { label: 'Nuestro Compromiso', text: 'Te garantizamos una experiencia excepcional, entregándote no solo retratos, sino piezas artísticas llenas de significado capturadas con elegancia y dedicación.' },
+        ].map((item, i) => (
+          <div class="reveal border-t border-cream/10 pt-8" style={`transition-delay: ${i * 0.15}s`}>
+            <p class="font-body text-xs tracking-widest2 uppercase text-gold mb-4">{item.label}</p>
+            <p class="font-body text-sm text-cream/60 leading-relaxed">{item.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section class="px-6 md:px-12 lg:px-20 py-24 md:py-36">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16">
+        <div class="reveal">
+          <p class="font-body text-xs tracking-widest3 uppercase text-gold mb-4">Servicios</p>
+          <h2 class="font-display font-light text-[clamp(36px,5vw,64px)] leading-tight">
+            Lo que<br /><em class="italic">ofrecemos</em>
+          </h2>
+        </div>
+        <a href="/servicios" class="reveal font-body text-xs tracking-widest2 uppercase border-b border-ink pb-1 hover:text-gold hover:border-gold transition-colors duration-300 mt-6 md:mt-0">
+          Ver todos los servicios
+        </a>
+      </div>
+
+      <!-- Service list -->
+      <div class="flex flex-col divide-y divide-ink/10">
+        {services.map((service, i) => (
+          <a
+            href={service.href}
+            class="reveal group flex flex-col md:flex-row items-start md:items-center gap-6 py-10 hover:pl-3 transition-all duration-500"
+            style={`transition-delay: ${i * 0.1}s`}
+          >
+            <span class="font-display font-light text-5xl text-ink/15 w-16 shrink-0">{service.num}</span>
+            <div class="img-hover w-24 h-16 md:w-32 md:h-20 shrink-0 hidden md:block">
+              <img src={service.img} alt={service.title} class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
+            </div>
+            <div class="flex-1">
+              <h3 class="font-display font-light text-2xl md:text-3xl group-hover:text-gold transition-colors duration-300 mb-2">{service.title}</h3>
+              <p class="font-body text-sm text-muted leading-relaxed max-w-lg">{service.desc}</p>
+            </div>
+            <div class="flex gap-2 flex-wrap">
+              {service.tags.map(tag => (
+                <span class="font-body text-[10px] tracking-widest2 uppercase bg-cream-dark px-3 py-1">{tag}</span>
+              ))}
+            </div>
+            <span class="text-2xl text-ink/30 group-hover:text-gold group-hover:translate-x-2 transition-all duration-300 ml-auto">→</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- EL ESTUDIO -->
+  <section class="px-6 md:px-12 lg:px-20 py-24 md:py-36 bg-cream-dark">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <!-- Images -->
+      <div class="reveal-left grid grid-cols-2 gap-4 order-2 lg:order-1">
+        <div class="img-hover aspect-[3/4]">
+          <img
+            src="https://images.unsplash.com/photo-1493649100108-50700e37d57e?w=600&q=80&auto=format&fit=crop"
+            alt="El estudio - ambiente 1"
+            class="w-full h-full object-cover"
+          />
+        </div>
+        <div class="flex flex-col gap-4 mt-10">
+          <div class="img-hover aspect-square">
+            <img
+              src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&q=80&auto=format&fit=crop"
+              alt="El estudio - detalles"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="img-hover aspect-[4/3]">
+            <img
+              src="https://images.unsplash.com/photo-1502980426475-b83966705988?w=400&q=80&auto=format&fit=crop"
+              alt="El estudio - luz natural"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Text -->
+      <div class="reveal order-1 lg:order-2">
+        <p class="font-body text-xs tracking-widest3 uppercase text-gold mb-8">El estudio</p>
+        <h2 class="font-display font-light text-[clamp(32px,4.5vw,56px)] leading-tight mb-8">
+          Un espacio<br />diseñado <em class="italic">para ti</em>
+        </h2>
+        <p class="font-body text-sm text-muted leading-relaxed mb-5">
+          El estudio está diseñado para que tu experiencia sea cómoda y especial desde el primer momento. Cuenta con dos pisos y dos ambientes diferentes, pensados para ofrecer variedad de escenarios en tus fotografías.
+        </p>
+        <p class="font-body text-sm text-muted leading-relaxed mb-5">
+          La luz natural que inunda el espacio, combinada con la opción de trabajar con flash profesional, nos permite jugar con estilos y matices que hacen que cada imagen sea única.
+        </p>
+        <p class="font-body text-sm text-muted leading-relaxed mb-10">
+          Más allá de lo técnico, el estudio ha sido preparado con todas las comodidades necesarias para que te sientas en familia: un espacio acogedor y cálido donde los más pequeños pueden disfrutar con tranquilidad.
+        </p>
+        <a href="/contacto" class="inline-flex items-center gap-4 bg-ink text-cream px-8 py-4 font-body text-xs tracking-widest2 uppercase hover:bg-gold transition-all duration-500">
+          Visitar el estudio →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NATHALIE BIO -->
+  <section class="px-6 md:px-12 lg:px-20 py-24 md:py-36">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-5 reveal-left">
+          <div class="img-hover aspect-[3/4] max-w-sm">
+            <img
+              src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=700&q=80&auto=format&fit=crop"
+              alt="Nathalie Calderón"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+        <div class="lg:col-span-7 reveal">
+          <p class="font-body text-xs tracking-widest3 uppercase text-gold mb-6">La fotógrafa</p>
+          <h2 class="font-display font-light text-[clamp(36px,5vw,64px)] italic leading-tight mb-8">
+            Conoce a<br />Nathalie
+          </h2>
+          <p class="font-body text-sm text-muted leading-relaxed mb-4">
+            Con años de experiencia capturando los momentos más significativos de la vida familiar, Nathalie Calderón ha desarrollado un ojo único para encontrar la belleza en lo cotidiano y eternizar esos instantes que pasan tan rápido.
+          </p>
+          <p class="font-body text-sm text-muted leading-relaxed mb-10">
+            Su pasión por la fotografía nació de un profundo amor por las personas y sus historias. Cada sesión es para ella una oportunidad de crear algo que la familia atesorará por generaciones.
+          </p>
+          <a href="/contacto" class="font-body text-xs tracking-widest2 uppercase border-b border-ink pb-1 hover:text-gold hover:border-gold transition-colors duration-300">
+            Escribir a Nathalie
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AGENDAR CTA -->
+  <section class="relative overflow-hidden bg-ink py-28 md:py-40 px-6 md:px-12 lg:px-20">
+    <div class="absolute inset-0">
+      <img
+        src="https://images.unsplash.com/photo-1516733968668-dbdce39c4651?w=1400&q=80&auto=format&fit=crop"
+        alt="Sesión de familia"
+        class="w-full h-full object-cover opacity-20"
+      />
+    </div>
+    <div class="relative z-10 max-w-4xl mx-auto text-center">
+      <p class="font-body text-xs tracking-widest3 uppercase text-cream/40 mb-8 reveal">¿Lista para comenzar?</p>
+      <h2 class="font-display font-light text-[clamp(48px,8vw,110px)] leading-none text-cream reveal mb-10">
+        AGENDA TU<br /><em class="italic">SESIÓN</em>
+      </h2>
+      <p class="font-body text-sm text-cream/60 max-w-lg mx-auto leading-relaxed mb-12 reveal">
+        Selecciona tu plan ideal y escríbeme comentándome tu fecha probable de parto o el tipo de sesión que deseas. Te haré llegar un formulario y los datos de pago.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center reveal">
+        <a href="/contacto" class="inline-flex items-center justify-center gap-3 bg-cream text-ink px-10 py-4 font-body text-xs tracking-widest2 uppercase hover:bg-gold hover:text-cream transition-all duration-500">
+          Agendar ahora →
+        </a>
+        <a href="/servicios" class="inline-flex items-center justify-center border border-cream/30 px-10 py-4 font-body text-xs tracking-widest2 uppercase text-cream hover:border-cream/70 transition-all duration-300">
+          Ver planes
+        </a>
+      </div>
+      <p class="font-body text-xs text-cream/30 mt-8 reveal">
+        Acepta tarjeta de crédito hasta 6 cuotas sin interés · Transferencia bancaria
+      </p>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

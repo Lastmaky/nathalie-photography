@@ -1,0 +1,132 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+
+
+const services = [
+  {
+    num: '01',
+    title: 'Maternidad',
+    subtitle: 'La belleza de la espera',
+    desc: 'Celebramos la magia única de este tiempo tan especial. Sesiones diseñadas para capturar la emoción y la belleza de la maternidad en su estado más puro.',
+    tags: ['Luz Natural', 'Estudio', 'Exterior'],
+    href: '/servicios/maternidad',
+    img: 'https://images.unsplash.com/photo-1544126592-807ade215a0b?w=900&q=80',
+    imgAlt: 'Fotografía de maternidad',
+  },
+  {
+    num: '02',
+    title: 'Recién Nacido',
+    subtitle: 'Los primeros días',
+    desc: 'Los primeros días son los más preciados. Retratos atemporales que capturan la pequeñez y la perfección de tu recién llegado y esas primeras horas de amor.',
+    tags: ['Newborn', 'Estudio', 'Especializado'],
+    href: '/servicios/recien-nacido',
+    img: 'https://images.unsplash.com/photo-1519689680058-324335c77eba?w=900&q=80',
+    imgAlt: 'Fotografía de recién nacido',
+  },
+  {
+    num: '03',
+    title: 'Mini Sesiones',
+    subtitle: 'Experiencia completa, tiempo acotado',
+    desc: 'Una experiencia fotográfica completa en menos tiempo. Perfecta para capturar momentos especiales, estaciones del año o simplemente para renovar tus recuerdos.',
+    tags: ['30 min', 'Flexible', 'Estudio'],
+    href: '/servicios/mini-sesiones',
+    img: 'https://images.unsplash.com/photo-1516733968668-dbdce39c4651?w=900&q=80',
+    imgAlt: 'Mini sesión fotográfica',
+  },
+  {
+    num: '04',
+    title: 'Mamá y Bebé',
+    subtitle: 'El primer amor',
+    desc: 'La primera conexión entre madre e hijo. Imágenes que preservan ese amor infinito para siempre. El vínculo más especial del mundo, capturado con sensibilidad y arte.',
+    tags: ['Vínculo', 'Amor', 'Estudio'],
+    href: '/servicios/mama-bebe',
+    img: 'https://images.unsplash.com/photo-1565103094640-6f823b97da1f?w=900&q=80',
+    imgAlt: 'Sesión mamá y bebé',
+  },
+];
+---
+
+<Layout title="Servicios" description="Nuestros servicios de fotografía: maternidad, recién nacido, mini sesiones y mamá y bebé.">
+  <Nav />
+
+  <!-- Page Header -->
+  <section class="pt-36 pb-16 px-6 md:px-12 lg:px-20">
+    <div class="max-w-7xl mx-auto">
+      <p class="font-body text-xs tracking-widest3 uppercase text-gold mb-6">Lo que ofrecemos</p>
+      <h1 class="font-display font-light text-[clamp(48px,8vw,110px)] leading-none mb-8">
+        NUESTROS<br /><em class="italic">SERVICIOS</em>
+      </h1>
+      <p class="font-body text-sm text-muted max-w-lg leading-relaxed">
+        Cada sesión es una experiencia única diseñada para capturar la belleza y emoción de los momentos que más importan en tu vida.
+      </p>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="px-6 md:px-12 lg:px-20">
+    <div class="max-w-7xl mx-auto border-t border-ink/10"></div>
+  </div>
+
+  <!-- Services List -->
+  <section class="px-6 md:px-12 lg:px-20 py-16">
+    <div class="max-w-7xl mx-auto flex flex-col gap-28">
+      {services.map((service, i) => (
+        <article class={`grid grid-cols-1 lg:grid-cols-12 gap-12 items-center reveal`}>
+          <!-- Image -->
+          <div class={`lg:col-span-6 img-hover aspect-[4/3] ${i % 2 === 1 ? 'lg:order-2' : ''}`}>
+            <img
+              src={service.img}
+              alt={service.imgAlt}
+              class="w-full h-full object-cover"
+            />
+          </div>
+
+          <!-- Content -->
+          <div class={`lg:col-span-6 ${i % 2 === 1 ? 'lg:order-1' : ''}`}>
+            <span class="font-display font-light text-8xl text-ink/8 block mb-2">{service.num}</span>
+            <p class="font-body text-xs tracking-widest2 uppercase text-gold mb-3">{service.subtitle}</p>
+            <h2 class="font-display font-light text-[clamp(36px,4vw,56px)] leading-tight mb-6">{service.title}</h2>
+            <p class="font-body text-sm text-muted leading-relaxed mb-8">{service.desc}</p>
+            <div class="flex flex-wrap gap-2 mb-10">
+              {service.tags.map(tag => (
+                <span class="font-body text-[10px] tracking-widest2 uppercase bg-cream-dark px-4 py-1.5">{tag}</span>
+              ))}
+            </div>
+            <a
+              href={service.href}
+              class="inline-flex items-center gap-4 border border-ink px-8 py-4 font-body text-xs tracking-widest2 uppercase text-ink hover:bg-ink hover:text-cream transition-all duration-500"
+            >
+              Ver este servicio →
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- AGENDAR -->
+  <section class="bg-cream-dark px-6 md:px-12 lg:px-20 py-24 mt-16">
+    <div class="max-w-4xl mx-auto text-center reveal">
+      <p class="font-body text-xs tracking-widest3 uppercase text-gold mb-6">¿Lista para comenzar?</p>
+      <h2 class="font-display font-light text-[clamp(36px,5vw,72px)] leading-none mb-8">
+        ¿QUIERES <em class="italic">AGENDAR</em>?
+      </h2>
+      <p class="font-body text-sm text-muted leading-relaxed max-w-2xl mx-auto mb-6">
+        Luego de ver todos los planes disponibles y seleccionar tu plan ideal, escríbeme comentándome tu fecha probable de parto. Te haré llegar un formulario y los datos de transferencia para que realices el abono del 50%; el resto debe ser cancelado el día de la sesión.
+      </p>
+      <p class="font-body text-xs text-muted mb-10">
+        Puedes pagar con tarjeta de crédito hasta 6 cuotas sin interés (según tu banco) y por transferencia bancaria.
+      </p>
+      <a
+        href="/contacto"
+        class="inline-flex items-center gap-3 bg-ink text-cream px-10 py-4 font-body text-xs tracking-widest2 uppercase hover:bg-gold transition-all duration-500"
+      >
+        Agendar ahora →
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

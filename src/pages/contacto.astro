@@ -1,0 +1,164 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Contacto" description="Agenda tu sesión fotográfica con Nathalie Calderón Photography en Santiago, Chile.">
+  <Nav />
+
+  <!-- Header -->
+  <section class="pt-40 pb-16 px-6 md:px-12 lg:px-20">
+    <div class="max-w-7xl mx-auto">
+      <p class="font-body text-xs tracking-widest3 uppercase text-gold mb-6">Hablemos</p>
+      <h1 class="font-display font-light text-[clamp(48px,8vw,110px)] leading-none mb-8">
+        AGENDA TU<br /><em class="italic">SESIÓN</em>
+      </h1>
+      <p class="font-body text-sm text-muted max-w-lg leading-relaxed">
+        Cuéntame sobre el momento especial que quieres capturar. Estaré encantada de crear algo hermoso juntas.
+      </p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="px-6 md:px-12 lg:px-20 py-12 pb-28">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+
+      <!-- Form -->
+      <div class="reveal">
+        <form id="contact-form" class="flex flex-col gap-8">
+          <!-- Nombre -->
+          <div class="flex flex-col gap-2">
+            <label class="font-body text-xs tracking-widest2 uppercase text-muted">Nombre completo *</label>
+            <input
+              type="text"
+              name="nombre"
+              required
+              class="bg-transparent border-b border-ink/20 py-3 font-body text-sm text-ink placeholder-ink/30 outline-none focus:border-gold transition-colors duration-300"
+              placeholder="Tu nombre"
+            />
+          </div>
+
+          <!-- Email -->
+          <div class="flex flex-col gap-2">
+            <label class="font-body text-xs tracking-widest2 uppercase text-muted">Correo electrónico *</label>
+            <input
+              type="email"
+              name="email"
+              required
+              class="bg-transparent border-b border-ink/20 py-3 font-body text-sm text-ink placeholder-ink/30 outline-none focus:border-gold transition-colors duration-300"
+              placeholder="tu@correo.cl"
+            />
+          </div>
+
+          <!-- Teléfono -->
+          <div class="flex flex-col gap-2">
+            <label class="font-body text-xs tracking-widest2 uppercase text-muted">Teléfono / WhatsApp</label>
+            <input
+              type="tel"
+              name="telefono"
+              class="bg-transparent border-b border-ink/20 py-3 font-body text-sm text-ink placeholder-ink/30 outline-none focus:border-gold transition-colors duration-300"
+              placeholder="+56 9 XXXX XXXX"
+            />
+          </div>
+
+          <!-- Servicio -->
+          <div class="flex flex-col gap-2">
+            <label class="font-body text-xs tracking-widest2 uppercase text-muted">Servicio de interés *</label>
+            <select
+              name="servicio"
+              required
+              class="bg-cream border-b border-ink/20 py-3 font-body text-sm text-ink outline-none focus:border-gold transition-colors duration-300 appearance-none"
+            >
+              <option value="" disabled selected>Selecciona un servicio</option>
+              <option value="maternidad">Maternidad</option>
+              <option value="recien-nacido">Recién Nacido</option>
+              <option value="mini-sesiones">Mini Sesiones</option>
+              <option value="mama-bebe">Mamá y Bebé</option>
+            </select>
+          </div>
+
+          <!-- Fecha probable -->
+          <div class="flex flex-col gap-2">
+            <label class="font-body text-xs tracking-widest2 uppercase text-muted">Fecha probable de parto / sesión</label>
+            <input
+              type="text"
+              name="fecha"
+              class="bg-transparent border-b border-ink/20 py-3 font-body text-sm text-ink placeholder-ink/30 outline-none focus:border-gold transition-colors duration-300"
+              placeholder="Ej: Agosto 2025, semana 32, etc."
+            />
+          </div>
+
+          <!-- Mensaje -->
+          <div class="flex flex-col gap-2">
+            <label class="font-body text-xs tracking-widest2 uppercase text-muted">Cuéntame más</label>
+            <textarea
+              name="mensaje"
+              rows="4"
+              class="bg-transparent border-b border-ink/20 py-3 font-body text-sm text-ink placeholder-ink/30 outline-none focus:border-gold transition-colors duration-300 resize-none"
+              placeholder="Cuéntame sobre lo que buscas, tus expectativas, tu historia..."
+            ></textarea>
+          </div>
+
+          <!-- Submit -->
+          <button
+            type="submit"
+            class="self-start inline-flex items-center gap-4 bg-ink text-cream px-10 py-4 font-body text-xs tracking-widest2 uppercase hover:bg-gold transition-all duration-500"
+          >
+            Enviar mensaje →
+          </button>
+
+          <!-- Success message (hidden) -->
+          <div id="success-msg" class="hidden p-6 border border-sage/40 bg-sage/10">
+            <p class="font-body text-sm text-ink">¡Gracias por tu mensaje! Me pondré en contacto contigo a la brevedad.</p>
+          </div>
+        </form>
+      </div>
+
+      <!-- Info sidebar -->
+      <div class="reveal flex flex-col gap-12">
+        <!-- Image -->
+        <div class="img-hover aspect-[4/3]">
+          <img
+            src="https://images.unsplash.com/photo-1544126592-807ade215a0b?w=700&q=80&auto=format&fit=crop"
+            alt="Estudio fotográfico"
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        <!-- Contact info -->
+        <div class="flex flex-col gap-8">
+          <div>
+            <p class="font-body text-xs tracking-widest2 uppercase text-gold mb-3">Ubicación</p>
+            <p class="font-body text-sm text-muted leading-relaxed">Santiago, Chile<br />Dirección exacta al confirmar sesión</p>
+          </div>
+          <div>
+            <p class="font-body text-xs tracking-widest2 uppercase text-gold mb-3">Contacto directo</p>
+            <a href="mailto:hola@nathaliecalderon.cl" class="font-body text-sm text-ink hover:text-gold transition-colors duration-300 link-underline block mb-2">hola@nathaliecalderon.cl</a>
+            <a href="https://instagram.com" target="_blank" class="font-body text-sm text-ink hover:text-gold transition-colors duration-300 link-underline block">@nathaliecalderonphoto</a>
+          </div>
+          <div>
+            <p class="font-body text-xs tracking-widest2 uppercase text-gold mb-3">Formas de pago</p>
+            <p class="font-body text-sm text-muted leading-relaxed">Abono del 50% para reservar fecha.<br />Saldo restante el día de la sesión.</p>
+            <p class="font-body text-sm text-muted leading-relaxed mt-2">Tarjeta de crédito hasta 6 cuotas sin interés.<br />Transferencia bancaria.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const successMsg = document.getElementById('success-msg');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    // In production, connect to your form handler (Netlify Forms, Formspree, etc.)
+    successMsg?.classList.remove('hidden');
+    form.reset();
+    setTimeout(() => successMsg?.classList.add('hidden'), 6000);
+  });
+</script>

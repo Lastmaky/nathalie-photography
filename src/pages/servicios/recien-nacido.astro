@@ -1,0 +1,98 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Recién Nacido" description="Fotografía de recién nacido newborn en Santiago, Chile. Capturamos los primeros días de tu bebé.">
+  <Nav />
+
+  <!-- Hero -->
+  <section class="relative h-screen flex items-end overflow-hidden">
+    <div class="absolute inset-0">
+      <img
+        src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=1600&q=80&auto=format&fit=crop"
+        alt="Fotografía de recién nacido"
+        class="w-full h-full object-cover object-center"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/30 to-transparent"></div>
+    </div>
+    <div class="relative z-10 px-6 md:px-12 lg:px-20 pb-20 w-full max-w-7xl mx-auto">
+      <p class="font-body text-xs tracking-widest3 uppercase text-cream/50 mb-4">02 — Servicio</p>
+      <h1 class="font-display font-light text-cream text-[clamp(50px,9vw,120px)] leading-none">
+        Recién<br /><em class="italic">Nacido</em>
+      </h1>
+      <p class="font-body text-sm text-cream/60 mt-4 max-w-md">Los primeros días son los más preciados. Eternizamos cada detalle.</p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="px-6 md:px-12 lg:px-20 py-24 md:py-36">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+      <!-- Gallery -->
+      <div class="reveal grid grid-cols-2 gap-4">
+        <div class="img-hover aspect-square">
+          <img src="https://images.unsplash.com/photo-1565103094640-6f823b97da1f?w=500&q=80&auto=format&fit=crop" alt="Newborn 1" class="w-full h-full object-cover" />
+        </div>
+        <div class="img-hover aspect-[3/4] row-span-2">
+          <img src="https://images.unsplash.com/photo-1455103316564-7a32b06c1d7a?w=500&q=80&auto=format&fit=crop" alt="Newborn 2" class="w-full h-full object-cover" />
+        </div>
+        <div class="img-hover aspect-square">
+          <img src="https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=500&q=80&auto=format&fit=crop" alt="Newborn 3" class="w-full h-full object-cover" />
+        </div>
+      </div>
+
+      <div class="reveal">
+        <p class="font-body text-xs tracking-widest3 uppercase text-gold mb-8">La experiencia</p>
+        <h2 class="font-display font-light text-[clamp(32px,4vw,52px)] leading-tight mb-8">
+          Los primeros días,<br /><em class="italic">para siempre</em>
+        </h2>
+        <p class="font-body text-sm text-muted leading-relaxed mb-5">
+          Las sesiones de recién nacido son una de las experiencias más especiales que podemos ofrecerte. Tu bebé crece increíblemente rápido, y esos primeros días de perfección absoluta pasan en un instante.
+        </p>
+        <p class="font-body text-sm text-muted leading-relaxed mb-5">
+          Trabajamos con mucha delicadeza y paciencia, asegurándonos de que tu bebé esté siempre cómodo y seguro. Las sesiones se realizan en un ambiente cálido y tranquilo, permitiendo que tu recién nacido duerma plácidamente mientras capturamos cada pequeño detalle.
+        </p>
+        <p class="font-body text-sm text-muted leading-relaxed mb-12">
+          Recomendamos realizar la sesión entre los 5 y 14 días después del nacimiento, cuando los bebés son más maleables y duermen más profundamente.
+        </p>
+
+        <div class="flex flex-wrap gap-2 mb-12">
+          {['Newborn especializado', 'Seguridad garantizada', 'Estudio cálido', 'Accesorios incluidos', 'Galería digital'].map(tag => (
+            <span class="font-body text-[10px] tracking-widest2 uppercase bg-cream-dark px-4 py-2">{tag}</span>
+          ))}
+        </div>
+
+        <a href="/contacto" class="inline-flex items-center gap-4 bg-ink text-cream px-10 py-4 font-body text-xs tracking-widest2 uppercase hover:bg-gold transition-all duration-500">
+          Agendar sesión →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Other services -->
+  <section class="bg-cream-dark px-6 md:px-12 lg:px-20 py-20">
+    <div class="max-w-7xl mx-auto">
+      <p class="font-body text-xs tracking-widest3 uppercase text-gold mb-10 reveal">Otros servicios</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {[
+          { title: 'Maternidad', href: '/servicios/maternidad', img: 'https://images.unsplash.com/photo-1544126592-807ade215a0b?w=600&q=80&auto=format&fit=crop' },
+          { title: 'Mini Sesiones', href: '/servicios/mini-sesiones', img: 'https://images.unsplash.com/photo-1516733968668-dbdce39c4651?w=600&q=80&auto=format&fit=crop' },
+          { title: 'Mamá y Bebé', href: '/servicios/mama-bebe', img: 'https://images.unsplash.com/photo-1565103094640-6f823b97da1f?w=600&q=80&auto=format&fit=crop' },
+        ].map(s => (
+          <a href={s.href} class="reveal group block">
+            <div class="img-hover aspect-[4/3] mb-4">
+              <img src={s.img} alt={s.title} class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
+            </div>
+            <div class="flex justify-between items-center">
+              <h3 class="font-display font-light text-xl group-hover:text-gold transition-colors duration-300">{s.title}</h3>
+              <span class="text-lg group-hover:translate-x-2 transition-transform duration-300">→</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

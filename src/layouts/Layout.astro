@@ -1,0 +1,92 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Nathalie Calderón Photography — Fotografía de maternidad, recién nacido y familia en Santiago, Chile.' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} — Nathalie Calderón Photography</title>
+  </head>
+  <body class="grain">
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-ring" id="cursor-ring"></div>
+
+    <slot />
+
+    <script>
+      // ── Cursor ───────────────────────────────────────────────────
+      const dot  = document.getElementById('cursor-dot');
+      const ring = document.getElementById('cursor-ring');
+      let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+      function lerp(a, b, t) { return a + (b - a) * t; }
+      function animateRing() {
+        ringX = lerp(ringX, mouseX, 0.12);
+        ringY = lerp(ringY, mouseY, 0.12);
+        if (ring) { ring.style.left = ringX + 'px'; ring.style.top = ringY + 'px'; }
+        requestAnimationFrame(animateRing);
+      }
+      animateRing();
+
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        if (dot) { dot.style.left = e.clientX + 'px'; dot.style.top = e.clientY + 'px'; }
+
+        // Adaptive color — detect dark bg under cursor
+        const el = document.elementFromPoint(e.clientX, e.clientY);
+        if (el) {
+          let target = el;
+          let isDark = false;
+          while (target && target !== document.body) {
+            const bg = window.getComputedStyle(target).backgroundColor;
+            const m = bg.match(/\d+(\.\d+)?/g);
+            if (m && m.length >= 3) {
+              const r = parseInt(m[0]), g = parseInt(m[1]), b = parseInt(m[2]);
+              const a = m[3] ? parseFloat(m[3]) : 1;
+              if (a > 0.15 && !(r > 238 && g > 232 && b > 220)) {
+                isDark = (0.299*r + 0.587*g + 0.114*b) / 255 < 0.5;
+                break;
+              }
+            }
+            target = target.parentElement;
+          }
+          dot?.classList.toggle('light', isDark);
+          ring?.classList.toggle('light', isDark);
+        }
+      });
+
+      document.querySelectorAll('a, button, [data-hover]').forEach(el => {
+        el.addEventListener('mouseenter', () => ring?.classList.add('hovering'));
+        el.addEventListener('mouseleave', () => ring?.classList.remove('hovering'));
+      });
+
+      document.addEventListener('mouseleave', () => { if(dot) dot.style.opacity='0'; if(ring) ring.style.opacity='0'; });
+      document.addEventListener('mouseenter', () => { if(dot) dot.style.opacity='1'; if(ring) ring.style.opacity='1'; });
+
+      // ── Scroll reveal ────────────────────────────────────────────
+      const revealObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal, .reveal-left').forEach(el => revealObs.observe(el));
+
+      // ── Nav scroll ───────────────────────────────────────────────
+      const nav = document.getElementById('main-nav');
+      window.addEventListener('scroll', () => {
+        nav?.classList.toggle('nav-scrolled', window.scrollY > 60);
+      }, { passive: true });
+    </script>
+  </body>
+</html>
