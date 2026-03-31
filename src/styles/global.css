@@ -5,14 +5,15 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
+  html { 
+    scroll-behavior: smooth; 
+  }
+  
+  body { 
+    /* Cambiamos bg-cream por el código exacto y text-ink por un gris oscuro */
+    @apply bg-[#faf9f6] text-[#222222] font-sans; 
   }
 
-  body {
-    @apply bg-cream text-ink font-body;
-    cursor: none;
-  }
 
   * {
     cursor: none !important;
