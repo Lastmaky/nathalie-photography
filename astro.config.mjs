@@ -4,6 +4,6 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
     site: 'https://lastmaky.github.io', 
 
-  base: '/nathalie-portfolio',
+ base: '/nathalie-photography',
   integrations: [tailwind()],
 });
